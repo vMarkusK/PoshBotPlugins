@@ -1,4 +1,4 @@
-PoshBotPlugins PowerShell Module
+PoshBotPlugins PowerShell Project
 =============
 
 # About
@@ -9,16 +9,16 @@ Markus Kraus [@vMarkus_K](https://twitter.com/vMarkus_K)
 
 MY CLOUD-(R)EVOLUTION [mycloudrevolution.com](http://mycloudrevolution.com/)
 
-## Project WebSite: 
+## Project WebSite:
 
 [mycloudrevolution.com](http://mycloudrevolution.com/)
 
-## Project Documentation: 
+## Project Documentation:
 
 [Read the Docs](http://readthedocs.io/)
 
 ## Project Description:
 
-The 'PoshBotPlugins' PowerShell Module ...
+The 'PoshBotPlugins' GitHub Repository contains my Veeam Plugin for PoshBot.
 
 
