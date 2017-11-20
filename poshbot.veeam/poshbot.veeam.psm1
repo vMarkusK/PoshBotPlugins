@@ -5,6 +5,20 @@ Add-PSSnapin VeeamPSSnapIn
 $CommandsToExport = @()
 
 function Get-VeeamRepositories {
+        <#
+        .SYNOPSIS
+        Get Veeam Repositories
+        .EXAMPLE
+        !Get-VeeamRepositories
+        .EXAMPLE
+        !Repos
+        .EXAMPLE
+        !VeeamRepositories
+        #>
+
+        [PoshBot.BotCommand(
+                Aliases = ('Repos', 'VeeamRepositories')
+        )]
         [cmdletbinding()]
         param(
                 [Parameter(Position=0, Mandatory=$false)]
@@ -100,6 +114,20 @@ function Get-VeeamRepositories {
 $CommandsToExport += 'Get-VeeamRepositories'
 
 function Get-VeeamSessions {
+                <#
+        .SYNOPSIS
+        Get Veeam Sessions
+        .EXAMPLE
+        !Get-VeeamSessions --reportMode Monthly
+        .EXAMPLE
+        !Sessions
+        .EXAMPLE
+        !VeeamSessions
+        #>
+
+        [PoshBot.BotCommand(
+                Aliases = ('Sessions', 'VeeamSessions')
+        )]
         [cmdletbinding()]
         param(
                 [Parameter(Position=0, Mandatory=$false)]
