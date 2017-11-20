@@ -2,11 +2,9 @@
 Add-PSSnapin VeeamPSSnapIn
 #endregion
 
+$CommandsToExport = @()
+
 function Get-VeeamRepositories {
-        [PoshBot.BotCommand(
-                CommandName = 'VeeamRepositories',
-                Aliases = ('Repos')
-            )]
         [cmdletbinding()]
         param(
                 [Parameter(Position=0, Mandatory=$false)]
@@ -99,12 +97,9 @@ function Get-VeeamRepositories {
         }
         #endregion
 }
+$CommandsToExport += 'Get-VeeamRepositories'
 
 function Get-VeeamSessions {
-        [PoshBot.BotCommand(
-                CommandName = 'VeeamSessions',
-                Aliases = ('Sessions')
-            )]
         [cmdletbinding()]
         param(
                 [Parameter(Position=0, Mandatory=$false)]
@@ -113,6 +108,7 @@ function Get-VeeamSessions {
                         $reportMode = "24" # Weekly, Monthly as String or Hour as Integer
 
         )
+
         #region: Convert mode (timeframe) to hours
         If ($reportMode -eq "Monthly") {
                 $HourstoCheck = 720
@@ -191,3 +187,6 @@ function Get-VeeamSessions {
         New-PoshBotCardResponse -Title "Session Stats for the last $HourstoCheck h:" -Text ($SessionResport | Format-List -Property * | Out-String)
         #endregion
 }
+$CommandsToExport += 'Get-VeeamSessions'
+
+Export-ModuleMember -Function $CommandsToExport
