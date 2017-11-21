@@ -1,4 +1,5 @@
 install:
+  - ps: Install-Module PsScriptAnalyzer -Force
   - cinst pester
 
 build: false
