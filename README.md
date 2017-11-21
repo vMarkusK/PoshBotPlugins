@@ -1,7 +1,7 @@
 PoshBotPlugins PowerShell Project
 =============
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=vMarkus_K&url=https://github.com/mycloudrevolution/PoshBotPlugins&title=PoshBotPlugins&language=Powershell&tags=github&category=software)
-
+[![Build status](https://ci.appveyor.com/api/projects/status/ne1f3ta0cri18gkn?svg=true)](https://ci.appveyor.com/project/mycloudrevolution/poshbotplugins)
 # About
 
 ## Project Owner:
