@@ -17,7 +17,8 @@ function Get-VeeamRepositories {
         #>
 
         [PoshBot.BotCommand(
-                Aliases = ('Repos', 'VeeamRepositories')
+                Aliases = ('Repos', 'VeeamRepositories'),
+                Permissions = 'read'
         )]
         [cmdletbinding()]
         param(
@@ -126,7 +127,8 @@ function Get-VeeamSessions {
         #>
 
         [PoshBot.BotCommand(
-                Aliases = ('Sessions', 'VeeamSessions')
+                Aliases = ('Sessions', 'VeeamSessions'),
+                Permissions = 'read'
         )]
         [cmdletbinding()]
         param(
