@@ -24,15 +24,5 @@ Describe "General project validation: $moduleName" {
 
     }
 
-    $modules = Get-ChildItem $moduleRoot -Include *.psd1 -Recurse
-    $testCase = $modules | Foreach-Object {@{file = $_}}
-    It "Module <file> can import cleanly" -TestCases $testCase {
-        param($file)
-
-        $file.fullname | Should Exist
-        $error.clear()
-        {Import-Module  $file.fullname } | Should Not Throw
-        $error.Count | Should Be 0
-    }
 }
 
