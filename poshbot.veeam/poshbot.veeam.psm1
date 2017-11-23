@@ -11,6 +11,8 @@ function Get-VeeamRepositories {
         .EXAMPLE
         !Get-VeeamRepositories
         .EXAMPLE
+        !Get-VeeamRepositories --brhost <your BR Host>
+        .EXAMPLE
         !Repos
         .EXAMPLE
         !VeeamRepositories
@@ -119,7 +121,11 @@ function Get-VeeamSessions {
         .SYNOPSIS
         Get Veeam Sessions
         .EXAMPLE
+        !Get-VeeamSessions
+        .EXAMPLE
         !Get-VeeamSessions --reportMode Monthly
+        .EXAMPLE
+        !Get-VeeamSessions --brhost <your BR Host>
         .EXAMPLE
         !Sessions
         .EXAMPLE

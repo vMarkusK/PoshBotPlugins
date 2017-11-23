@@ -24,6 +24,10 @@ install:
   - ps: . .\helper\Update-PowerShellGallery.ps1
   - ps: Install-Module PsScriptAnalyzer -Force
   - ps: Install-Module Pester -Force
+  - ps: Install-Module -Name PowerShellGet -Force
+  - ps: Import-Module -Name PowerShellGet
+  - ps: Install-PackageProvider NuGet
+  - ps: Import-PackageProvider NuGet
 
 test_script:
   - ps: $res = Invoke-Pester -Path ".\tests" -OutputFormat NUnitXml -OutputFile TestsResults.xml -PassThru
