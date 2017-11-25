@@ -4,6 +4,10 @@ Write-Host 'Installing NuGet PackageProvide'
 $pkg = Install-PackageProvider -Name NuGet -Force
 Write-Host "Installed NuGet version '$($pkg.version)'"
 
+Write-Host 'Installing PowerShellGet'
+Install-Module -Name PowerShellGet -Repository PSGallery -Force
+Import-Module -Name PowerShellGet
+
 Write-Host 'Installing Pester'
 Install-Module -Name Pester -Repository PSGallery -Force
 
