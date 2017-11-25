@@ -17,6 +17,7 @@ clone_folder: C:\Projects\PoshBotPlugins\
 environment:
   NuGetApiKey:
     secure: yT4y8CJjmfXG3XtpPURja5wnvvASrxJrHDDWAjCzLaDY8eMNn8YrsZR5nnU1izGn
+  ModuleName: poshbot.veeam
 
 install:
   - ps: . .\helper\Update-PowerShellGallery.ps1
@@ -28,11 +29,7 @@ install:
   - ps: Import-PackageProvider NuGet
 
 build_script:
-  - ps: Write-Host "Running AppVeyor build script" -ForegroundColor Yellow
-  - ps: Write-Host "ModuleName    - $env:ModuleName"
-  - ps: Write-Host "Build version - $env:APPVEYOR_BUILD_VERSION"
-  - ps: Write-Host "Author        - $env:APPVEYOR_REPO_COMMIT_AUTHOR"
-  - ps: Write-Host "Branch        - $env:APPVEYOR_REPO_BRANCH"
+  - ps: . .\appveyor\build.ps1
 
 test_script:
   - ps: Write-Host "Running AppVeyor test script" -ForegroundColor Yellow
