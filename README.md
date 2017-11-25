@@ -26,6 +26,11 @@ The 'PoshBotPlugins' GitHub Repository contains my Plugins for [PoshBot](https:/
 
 ## poshbot.veeam
 
+Install Plugin:
+```powershell
+!install-plugin poshbot.veeam
+```
+
 ### Get-VeeamRepositories
 
 ![Get-VeeamRepositories](/media/Get-VeeamRepositories.png)
@@ -34,4 +39,6 @@ The 'PoshBotPlugins' GitHub Repository contains my Plugins for [PoshBot](https:/
 
 ![Get-VeeamSessions](/media/Get-VeeamSessions.png)
 
+### Get-VeeamJobs
 
+![Get-VeeamJobs](/media/Get-VeeamJobs.png)
