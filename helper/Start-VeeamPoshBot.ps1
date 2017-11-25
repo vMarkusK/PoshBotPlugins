@@ -15,5 +15,4 @@ function Start-VeeamPoshBot ($token) {
     $myBotConfig = New-PoshBotConfiguration @botParams
 
     Start-PoshBot -Configuration $myBotConfig
-
 }
