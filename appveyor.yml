@@ -8,10 +8,6 @@ version: 0.1.{build}
 pull_requests:
   do_not_increment_build_number: true
 
-#branches:
-#  only:
-#  - master
-
 clone_folder: C:\Projects\PoshBotPlugins\
 
 environment:
