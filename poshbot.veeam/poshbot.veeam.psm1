@@ -261,11 +261,11 @@ function Get-VeeamJobs {
         forEach ($Job in $Jobs) {
 
                 $r = [pscustomobject]@{
-                        Name = $($Job.'Name')
-                        JobType = $($Job.'JobType')
-                        IsRunning = $($Job.'IsRunning')
-                        IsScheduleEnabled =  $($Job.'IsScheduleEnabled')
-                        NextRun =  $($Job.'ScheduleOptions.StartDateTimeLocal')
+                        Name = $Job.Name
+                        JobType = $Job.JobType
+                        IsRunning = $Job.IsRunning
+                        IsScheduleEnabled = $Job.IsScheduleEnabled
+                        NextRun = $Job.ScheduleOptions.NextRun
                     }
 
                 New-PoshBotCardResponse -Title "$($Job.'Name'):" -Text ($r | Format-List -Property * | Out-String)
