@@ -14,4 +14,4 @@ if ($env:APPVEYOR_REPO_BRANCH -notmatch 'master')
 }
 
 Write-Host 'Publishing module to Powershell Gallery'
-#Update-PowerShellGallery -Path "$($env:APPVEYOR_BUILD_FOLDER)\$($env:ModuleName)\" -ApiKey $env:NuGetApiKey
+Update-PowerShellGallery -Path "$($env:APPVEYOR_BUILD_FOLDER)\$($env:ModuleName)\" -ApiKey $env:NuGetApiKey

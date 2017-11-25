@@ -225,4 +225,53 @@ function Get-VeeamSessions {
 }
 $CommandsToExport += 'Get-VeeamSessions'
 
+function Get-VeeamJobs {
+        <#
+        .SYNOPSIS
+        Get Veeam Jobs
+        .EXAMPLE
+        !Get-VeeamJobs
+        .EXAMPLE
+        !Get-VeeamJobs --brhost <your BR Host>
+        .EXAMPLE
+        !Jobs
+        .EXAMPLE
+        !VeeamJobs
+        #>
+
+        [PoshBot.BotCommand(
+                Aliases = ('Jobs', 'VeeamJobs'),
+                Permissions = 'read'
+        )]
+        [cmdletbinding()]
+        param(
+                [Parameter(Position=0, Mandatory=$false)]
+                [string] $BRHost = "localhost"
+        )
+
+        #region: Start BRHost Connection
+        Connect-VBRServer -Server $BRHost
+        #endregion
+
+        #region: Collect Jobs
+        [Array] $Jobs = Get-VBRJob
+        #endregion
+
+        #region: Build Report
+        forEach ($Job in $Jobs) {
+
+                $r = [pscustomobject]@{
+                        Name = $($Job.'Name')
+                        JobType = $($Job.'JobType')
+                        IsRunning = $($Job.'IsRunning')
+                        IsScheduleEnabled =  $($Job.'IsScheduleEnabled')
+                        NextRun =  $($Job.'.ScheduleOptions.StartDateTimeLocal')
+                    }
+
+                New-PoshBotCardResponse -Title "$($Job.'Name'):" -Text ($r | Format-List -Property * | Out-String)
+        }
+        #endregion
+}
+$CommandsToExport += 'Get-VeeamJobs'
+
 Export-ModuleMember -Function $CommandsToExport
