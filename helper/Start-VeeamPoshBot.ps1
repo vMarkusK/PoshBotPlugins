@@ -11,9 +11,6 @@ function Start-VeeamPoshBot ($token) {
         }
         AlternateCommandPrefixes = 'bender', 'hal'
     }
-
     $myBotConfig = New-PoshBotConfiguration @botParams
-
     Start-PoshBot -Configuration $myBotConfig
-
 }

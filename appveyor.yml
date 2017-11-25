@@ -1,5 +1,3 @@
-build: off
-
 skip_commits:
   files:
     - README.md
@@ -7,30 +5,25 @@ skip_commits:
 
 version: 0.1.{build}
 
-pull_requests:
-  do_not_increment_build_number: true
-
-branches:
-  only:
-  - master
+#pull_requests:
+#  do_not_increment_build_number: true
 
 clone_folder: C:\Projects\PoshBotPlugins\
 
 environment:
   NuGetApiKey:
     secure: yT4y8CJjmfXG3XtpPURja5wnvvASrxJrHDDWAjCzLaDY8eMNn8YrsZR5nnU1izGn
+  ModuleName: poshbot.veeam
 
 install:
   - ps: . .\helper\Update-PowerShellGallery.ps1
-  - ps: Install-Module PsScriptAnalyzer -Force
-  - ps: Install-Module Pester -Force
-  - ps: Install-Module PowerShellGet -Force
-  - ps: Import-Module  PowerShellGet
-  - ps: Install-PackageProvider NuGet
-  - ps: Import-PackageProvider NuGet
+  - ps: . .\appveyor\install.ps1
+
+build_script:
+  - ps: . .\appveyor\build.ps1
 
 test_script:
-  - ps: $res = Invoke-Pester -Path ".\tests" -OutputFormat NUnitXml -OutputFile TestsResults.xml -PassThru
-  - ps: (New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\TestsResults.xml))
-  - ps: if ($res.FailedCount -gt 0) { throw "$($res.FailedCount) tests failed."}
-  - ps: Update-PowerShellGallery -Path "$($env:APPVEYOR_BUILD_FOLDER)\poshbot.veeam\" -ApiKey $env:NuGetApiKey
+  - ps: . .\appveyor\test.ps1
+
+deploy_script:
+  - ps: . .\appveyor\deploy.ps1
