@@ -265,7 +265,7 @@ function Get-VeeamJobs {
                         JobType = $($Job.'JobType')
                         IsRunning = $($Job.'IsRunning')
                         IsScheduleEnabled =  $($Job.'IsScheduleEnabled')
-                        NextRun =  $($Job.'.ScheduleOptions.StartDateTimeLocal')
+                        NextRun =  $($Job.'ScheduleOptions.StartDateTimeLocal')
                     }
 
                 New-PoshBotCardResponse -Title "$($Job.'Name'):" -Text ($r | Format-List -Property * | Out-String)
