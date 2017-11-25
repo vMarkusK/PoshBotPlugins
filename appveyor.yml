@@ -31,10 +31,10 @@ install:
 
 build_script:
   - ps: Write-Host "Running AppVeyor build script" -ForegroundColor Yellow
-  - ps: Write-Host "ModuleName    : $env:ModuleName"
-  - ps: Write-Host "Build version : $env:APPVEYOR_BUILD_VERSION"
-  - ps: Write-Host "Author        : $env:APPVEYOR_REPO_COMMIT_AUTHOR"
-  - ps: Write-Host "Branch        : $env:APPVEYOR_REPO_BRANCH"
+  - ps: Write-Host "ModuleName    - $env:ModuleName"
+  - ps: Write-Host "Build version - $env:APPVEYOR_BUILD_VERSION"
+  - ps: Write-Host "Author        - $env:APPVEYOR_REPO_COMMIT_AUTHOR"
+  - ps: Write-Host "Branch        - $env:APPVEYOR_REPO_BRANCH"
 
 test_script:
   - ps: Write-Host 'Running AppVeyor test script' -ForegroundColor Yellow
@@ -49,5 +49,5 @@ deploy_script:
 	- ps: $ModuleManifestPath = Join-Path -path "$($env:APPVEYOR_BUILD_FOLDER)\poshbot.veeam\" -ChildPath ("$env:ModuleName"+'.psd1')
 	- ps: $ModuleManifest     = Get-Content $ModuleManifestPath -Raw
 	- ps: [regex]::replace($ModuleManifest,'(ModuleVersion = )(.*)',"`$1'$env:APPVEYOR_BUILD_VERSION'") | Out-File -LiteralPath $ModuleManifestPath
-	- ps: if ($env:APPVEYOR_REPO_BRANCH -notmatch 'master') {  Write-Host "Finished testing of branch: $env:APPVEYOR_REPO_BRANCH - Exiting";  exit;}
+	- ps: if ($env:APPVEYOR_REPO_BRANCH -notmatch 'master') {  Write-Host "Finished testing of branch $env:APPVEYOR_REPO_BRANCH - Exiting";  exit;}
   #- ps: Update-PowerShellGallery -Path "$($env:APPVEYOR_BUILD_FOLDER)\poshbot.veeam\" -ApiKey $env:NuGetApiKey
