@@ -452,9 +452,8 @@ function Get-VeeamJobs {
                         JobType = $Job.JobType
                     }
                 $report += $object
-
-                New-PoshBotCardResponse -Title "Veeam Jobs:" -Text ($report | Format-List -Property * | Out-String)
         }
+        New-PoshBotCardResponse -Title "Veeam Jobs:" -Text ($report | Format-List -Property * | Out-String)
         #endregion
 }
 $CommandsToExport += 'Get-VeeamJobs'
