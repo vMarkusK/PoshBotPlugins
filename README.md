@@ -12,25 +12,24 @@ MY CLOUD-(R)EVOLUTION [mycloudrevolution.com](http://mycloudrevolution.com/)
 
 ## Project WebSite:
 
-[mycloudrevolution.com](http://mycloudrevolution.com/)
-
-## Project Documentation:
-
-[Read the Docs](http://readthedocs.io/)
+[Veeam Plugin for PoshBot chat bot](https://mycloudrevolution.com/2017/11/27/veeam-plugin-for-poshbot-chat-bot/)
 
 ## Project Description:
 
-The 'PoshBotPlugins' GitHub Repository contains my Plugins for [PoshBot](https://github.com/poshbotio/PoshBot).
+The 'PoshBotPlugins' GitHub Repository contains my Plugins for the [PoshBot](https://github.com/poshbotio/PoshBot) chat bot.
 
 # Plugins
 
 ## poshbot.veeam
 
-Install Plugin:
+Visit this blog post for [Plugin Details](https://mycloudrevolution.com/2017/11/27/veeam-plugin-for-poshbot-chat-bot/).
+
+**Install Plugin:**
+
 ```powershell
 !install-plugin poshbot.veeam
 ```
-
+___
 ### Get-VeeamRepositories
 
 ![Get-VeeamRepositories](/media/Get-VeeamRepositories.png)
