@@ -358,7 +358,7 @@ function Get-VeeamRepositories {
 $CommandsToExport += 'Get-VeeamRepositories'
 
 function Get-VeeamJobSessions {
-                <#
+        <#
         .SYNOPSIS
         Get last Veeam Job Sessions
         .EXAMPLE
