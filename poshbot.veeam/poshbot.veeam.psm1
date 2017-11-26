@@ -357,22 +357,22 @@ function Get-VeeamRepositories {
 }
 $CommandsToExport += 'Get-VeeamRepositories'
 
-function Get-VeeamSessions {
+function Get-VeeamJobSessions {
                 <#
         .SYNOPSIS
-        Get Veeam Sessions
+        Get last Veeam Job Sessions
         .EXAMPLE
-        !Get-VeeamSessions
+        !Get-VeeamJobSessions
         .EXAMPLE
-        !Get-VeeamSessions --brhost <your BR Host>
+        !Get-VeeamJobSessions --brhost <your BR Host>
         .EXAMPLE
-        !Sessions
+        !JobSessions
         .EXAMPLE
-        !VeeamSessions
+        !VeeamJobSessions
         #>
 
         [PoshBot.BotCommand(
-                Aliases = ('Sessions', 'VeeamSessions'),
+                Aliases = ('JobSessions', 'VeeamJobSessions'),
                 Permissions = 'read'
         )]
         [cmdletbinding()]
@@ -409,7 +409,7 @@ function Get-VeeamSessions {
                                 }
         #endregion
 }
-$CommandsToExport += 'Get-VeeamSessions'
+$CommandsToExport += 'Get-VeeamJobSessions'
 
 function Get-VeeamJobs {
         <#
