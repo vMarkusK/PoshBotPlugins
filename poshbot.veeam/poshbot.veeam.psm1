@@ -444,14 +444,16 @@ function Get-VeeamJobs {
         #endregion
 
         #region: Build Report
+        $report = @()
         forEach ($Job in $Jobs) {
 
-                $r = [pscustomobject]@{
+                $object = [pscustomobject]@{
                         Name = $Job.Name
                         JobType = $Job.JobType
                     }
+                $report += $object
 
-                New-PoshBotCardResponse -Title "$($Job.'Name'):" -Text ($r | Format-List -Property * | Out-String)
+                New-PoshBotCardResponse -Title "Veeam Jobs:" -Text ($report | Format-List -Property * | Out-String)
         }
         #endregion
 }
