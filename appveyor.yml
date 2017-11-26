@@ -5,8 +5,8 @@ skip_commits:
 
 version: 0.1.{build}
 
-#pull_requests:
-#  do_not_increment_build_number: true
+pull_requests:
+  do_not_increment_build_number: true
 
 clone_folder: C:\Projects\PoshBotPlugins\
 
