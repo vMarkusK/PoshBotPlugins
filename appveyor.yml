@@ -3,10 +3,10 @@ skip_commits:
     - README.md
   message: /update readme.*|update docs.*|update media.*|update appveyor.*/
 
-version: 0.1.{build}
+version: 0.2.{build}
 
-#pull_requests:
-#  do_not_increment_build_number: true
+pull_requests:
+  do_not_increment_build_number: true
 
 clone_folder: C:\Projects\PoshBotPlugins\
 
