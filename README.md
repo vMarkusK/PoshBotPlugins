@@ -35,10 +35,15 @@ Install Plugin:
 
 ![Get-VeeamRepositories](/media/Get-VeeamRepositories.png)
 
-### Get-VeeamSessions
+### Get-VeeamJobSessions
 
-![Get-VeeamSessions](/media/Get-VeeamSessions.png)
+![Get-VeeamSessions](/media/Get-VeeamJobSessions.png)
 
+Job details:
+
+![Get-VeeamSessions_Detail](/media/Get-VeeamJobSessions_Detail.png)
+
+Big thanks to [Timothy Dewin](https://twitter.com/tdewin) for his great [PowerShell-VeeamAllStats](https://github.com/tdewin/randomsamples/tree/master/powershell-veeamallstat) PowerShell Module which is used to generate the Output for this Command.
 ### Get-VeeamJobs
 
 ![Get-VeeamJobs](/media/Get-VeeamJobs.png)
