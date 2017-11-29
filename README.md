@@ -29,6 +29,14 @@ Visit this blog post for [Plugin Details](https://mycloudrevolution.com/2017/11/
 ```powershell
 !install-plugin poshbot.veeam
 ```
+
+**Update Plugin:**
+
+```powershell
+!update-plugin poshbot.veeam
+```
+
+**Please Note:** if you upgrade from Version 0.2.1 or older to Version 0.2.2 or newer, update will fail. Please remove plugin from PoshBot and then uninstall all Module Versions before you install the actual Plugin Version.
 ___
 ### Get-VeeamRepositories
 
