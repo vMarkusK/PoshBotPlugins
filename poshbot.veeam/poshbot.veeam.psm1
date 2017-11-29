@@ -1,7 +1,3 @@
-#region: Start Load VEEAM Snapin (if not already loaded)
-Add-PSSnapin VeeamPSSnapIn
-#endregion
-
 #region: Private Functions
 ## Source: https://github.com/tdewin/randomsamples/tree/master/powershell-veeamallstat
 class VeeamAllStatJobSessionVM {
@@ -269,6 +265,12 @@ function Get-VeeamRepositories {
                 [string] $BRHost = "localhost"
         )
 
+        #region: Load PSSnapIn
+        if ( (Get-PSSnapin -Name VeeamPSSnapin -ErrorAction SilentlyContinue) -eq $null ) {
+            Add-PSsnapin VeeamPSSnapin
+        }
+        #endregion
+
         #region: Functions
         Function Get-vPCRepoInfo {
                 [CmdletBinding()]
@@ -381,6 +383,12 @@ function Get-VeeamJobSessions {
                         [string] $BRHost = "localhost"
         )
 
+        #region: Load PSSnapIn
+        if ( (Get-PSSnapin -Name VeeamPSSnapin -ErrorAction SilentlyContinue) -eq $null ) {
+            Add-PSsnapin VeeamPSSnapin
+        }
+        #endregion
+
         #region: Start BRHost Connection
         Connect-VBRServer -Server $BRHost
         #endregion
@@ -434,6 +442,12 @@ function Get-VeeamJobs {
                 [Parameter(Position=0, Mandatory=$false)]
                 [string] $BRHost = "localhost"
         )
+
+        #region: Load PSSnapIn
+        if ( (Get-PSSnapin -Name VeeamPSSnapin -ErrorAction SilentlyContinue) -eq $null ) {
+            Add-PSsnapin VeeamPSSnapin
+        }
+        #endregion
 
         #region: Start BRHost Connection
         Connect-VBRServer -Server $BRHost
