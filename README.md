@@ -54,3 +54,5 @@ Big thanks to [Timothy Dewin](https://twitter.com/tdewin) for his great [PowerSh
 ### Get-VeeamJobs
 
 ![Get-VeeamJobs](/media/Get-VeeamJobs.png)
+
+### Start-VeeamQuickBackup
