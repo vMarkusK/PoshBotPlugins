@@ -530,12 +530,12 @@ function Start-VeeamQuickBackup {
         }
 
         if ($Result.Result -eq "Failed") {
-            Throw "Quick Backup Failed. See Veeam B&R Console for more details!"
+            New-PoshBotCardResponse -Type Error -Text  "Quick Backup Failed. See Veeam B&R Console for more details!"
         }
 
     }
     else {
-        Throw "No ViEntity '$ViEntity' found!"
+        New-PoshBotCardResponse -Type Error -Text  "No ViEntity '$ViEntity' found!"
     }
 
 }
