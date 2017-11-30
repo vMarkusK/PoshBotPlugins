@@ -515,7 +515,6 @@ function Start-VeeamQuickBackup {
         $Result = Start-VBRQuickBackup -VM $VeeamVm -Wait
 
         if ($Result) {
-            $Result | Select-Object JobName, Result, CreationTime, EndTime
 
             #region: Build Report
             $report = @()
