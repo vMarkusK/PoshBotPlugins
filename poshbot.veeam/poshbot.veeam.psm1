@@ -472,5 +472,75 @@ function Get-VeeamJobs {
 }
 $CommandsToExport += 'Get-VeeamJobs'
 
+function Start-VeeamQuickBackup {
+    <#
+    .SYNOPSIS
+    STart Veeam Quick Backup
+    .EXAMPLE
+    !Start-VeeamQuickBackup --ViEntity <VM Name>
+    .EXAMPLE
+    !Start-VeeamQuickBackup --ViEntity <VM Name> --brhost <your BR Host>
+    .EXAMPLE
+    !VuickBackup --ViEntity <VM Name>
+    .EXAMPLE
+    !VeeamQuickBackup --ViEntity <VM Name>
+    #>
+
+    [PoshBot.BotCommand(
+        Aliases = ('QuickBackup', 'VeeamQuickBackup'),
+        Permissions = 'write'
+    )]
+    [CmdletBinding()]
+        param(
+            [Parameter(Mandatory=$true, Position=0)]
+            [ValidateNotNullorEmpty()]
+            [String]$ViEntity,
+            [Parameter(Mandatory=$false, Position=1)]
+            [ValidateNotNullorEmpty()]
+            [string] $BRHost = "localhost"
+        )
+
+    #region: Load PSSnapIn
+    if ( (Get-PSSnapin -Name VeeamPSSnapin -ErrorAction SilentlyContinue) -eq $null ) {
+        Add-PSsnapin VeeamPSSnapin
+    }
+    #endregion
+
+    #region: Start BRHost Connection
+    Connect-VBRServer -Server $BRHost
+    #endregion
+
+    if ($VeeamVm = Find-VBRViEntity -Name $ViEntity) {
+
+        $Result = Start-VBRQuickBackup -VM $VeeamVm -Wait
+
+        if ($Result) {
+            $Result | Select-Object JobName, Result, CreationTime, EndTime
+
+            #region: Build Report
+            $report = @()
+            $object = [pscustomobject]@{
+                JobName = $Result.JobName
+                Result = $Result.Result
+                CreationTime = $Result.CreationTime
+                EndTime = $Result.EndTime
+                }
+            $report += $object
+            New-PoshBotCardResponse -Title "Veeam Quickbackup Result:" -Text ($report | Format-List -Property * | Out-String)
+            #endregion
+        }
+
+        if ($Result.Result -eq "Failed") {
+            Throw "Quick Backup Failed. See Veeam B&R Console for more details!"
+        }
+
+    }
+    else {
+        Throw "No ViEntity '$ViEntity' found!"
+    }
+
+}
+$CommandsToExport += 'Start-VeeamQuickBackup'
+
 Export-ModuleMember -Function $CommandsToExport
 #endregsion
